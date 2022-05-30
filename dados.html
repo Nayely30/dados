@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DADOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="st.css">
+  
+</head>
+<body>
+    <header>
+        <h1>Jugando dados</h1>
+    </header>
+    <section class="dados">
+        <label>Numero de jugadores:</label>
+        <br>
+        <input type="number" id="jugadores">
+        <br>
+        <button id="btn1" class="boton">Jugar</button>
+        <div id="resultado"></div>
+        <div id="primero"></div>
+        <script>
+            var t=document.getElementById('btn1');
+            t.addEventListener('click',dados);
+            function dados()
+            {
+                var n1=parseInt(document.getElementById('jugadores').value);
+                var dado=[];
+                for (var i=1;i<=n1;i++){
+                    var da=Math.floor(Math.random()*6)+1;
+                    dado.push(da);
+                }
+                var primero=(dado.indexOf(Math.max(...dado)))+1
+                document.getElementById("resultado").innerHTML=dado
+                document.getElementById("primero").innerHTML ="El ganador del juego es el jugador: "+primero
+
+            }
+
+        </script>
+</body>
+</html>  
